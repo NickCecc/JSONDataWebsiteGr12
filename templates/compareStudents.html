@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form method="post">
+    <div class="mb-3 mx-auto" style="width: 72px;">
+        <label for="exampleInputEmail1" class="form-label">Student #</label>
+    </div>
+    <div class="mb-3 mx-auto" style="width: 185px;">
+        <input type="text" class="form-group row col-sm " id="exampleInputEmail1" aria-describedby="emailHelp"
+               name="Name" value="{{ request.form.Name }}">
+    </div>
+    <div class="mb-3 mx-auto" style="width: 185px;">
+        <input type="text" class="form-group row col-sm " id="exampleInputEmail1" aria-describedby="emailHelp"
+               name="Name2" value="{{ request.form.Name }}">
+    </div>
+    <div id="emailHelp" class="form-text">Students range from 1-24.</div>
+
+    <div class="mx-auto" style="width: 77px">
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+
+</form>
+</body>
+</html>

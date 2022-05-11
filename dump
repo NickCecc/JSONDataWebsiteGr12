@@ -1,0 +1,99 @@
+def customDDecoder(dDict):
+    return namedtuple('X', dDict.keys())(*dDict.values())
+
+
+f = open("data.json")
+json_string = f.read()
+f.close()
+py_obj = json.loads(json_string)
+dObj = json.loads(json_string, object_hook=customDDecoder)
+students = dObj.students
+
+i = 0
+s1AvgSleep = 0
+for i in range(7):
+    s1AvgSleep += students[0].days[i].sleep
+
+s1AvgSleep = s1AvgSleep / 7
+
+days = []
+pos = 0
+j = 0
+
+numStudents = []
+
+for i in range(len(students) + 1):
+    numStudents.append(i)
+
+avgSleep = []
+
+for i in range(len(students)):
+    sleep = 0
+    sugar = 0
+    validDays = 0
+
+    for k in range(len(dObj.students[i].days)):
+        if (len(dObj.students[i].days[k]) == 0):
+            continue
+        else:
+            sleep += dObj.students[i].days[k].sleep
+            sugar += dObj.students[i].days[k].sugar
+            validDays += 1
+
+    if (validDays == 0):
+        avgSleep.append(0)
+    else:
+        avgSleep.append(sleep / validDays)
+        avgSleep.append(sugar / validDays)
+
+stu1 = []
+avgSl = 0
+avgSu = 0
+val = 0
+for i in range(len(dObj.students[0].days)):
+
+    if (len(dObj.students[0].days[i]) == 0):
+        continue
+    else:
+        val += 1
+        avgSl += dObj.students[0].days[i].sleep
+        avgSu += dObj.students[0].days[i].sugar
+stu1.append(avgSl / val)
+stu1.append(avgSu / val)
+
+
+, studNum=dObj, numStudents=numStudents, stu1=stu1
+dObj = json.loads(json_string, object_hook=customDDecoder)
+
+
+
+for i in range(len(students)):
+    sleep = 0
+    sugar = 0
+    validDays = 0
+
+    for k in range(len(dObj.students[i].days)):
+        if (len(dObj.students[i].days[k]) == 0):
+            continue
+        else:
+            sleep += dObj.students[i].days[k].sleep
+            sugar += dObj.students[i].days[k].sugar
+            validDays += 1
+
+    if (validDays == 0):
+        avgSleep.append(0)
+    else:
+        avgSleep.append(sleep / validDays)
+        avgSleep.append(sugar / validDays)
+
+
+        if (parseInt(document.getElementById("sHealth").rows[1].cells.item(0).innerHTML) == 1) {
+                    x[2].style.backgroundColor = "#73ffb7";
+                }
+                if (parseInt(document.getElementById("sHealth").rows[1].cells.item(0).innerHTML) >= 3) {
+                    x[2].style.backgroundColor = "#fff373";
+                }
+
+                if (document.getElementById("sHealth").rows[1].cells.item(0).innerHTML >= 6) {
+                    x[2].style.backgroundColor = "#ff7373";
+                }
